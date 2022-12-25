@@ -1,0 +1,13 @@
+.person-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 80em) {
+    flex-direction: column;
+
+    &__category {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<ul class="list">
+  <li *ngFor="let item of list" class="list__item">
+    <app-media-item
+      [item]="item"
+      [isShowOnlyTitle]="isShowOnlyTitle">
+    </app-media-item>
+  </li>
+</ul>

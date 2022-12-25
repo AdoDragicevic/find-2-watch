@@ -1,0 +1,19 @@
+<article class="overview-card">
+  <a
+    class="u-anchor-reset"
+    [routerLink]="href">
+    <img
+      class="overview-card__img"
+      [src]="imgUrl"
+      [alt]="imgAlt"
+      (error)="isImgLoaded = false">
+    <section
+      class="overview-card__content"
+      [ngClass]="{ 'overview-card__content--fixed': !isImgLoaded }">
+      <h2 *ngIf="!isImgLoaded" class="overview-card__no-img">
+        {{imgAlt}}
+      </h2>
+      <ng-content *ngIf="isImgLoaded"></ng-content>
+    </section>
+  </a>
+</article>

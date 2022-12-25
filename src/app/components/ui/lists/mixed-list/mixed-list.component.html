@@ -1,0 +1,10 @@
+<ul class="list">
+  <li *ngFor="let item of list" class="list__item">
+    <ng-container *ngIf="isPerson(item); else media">
+      <app-person-item [item]="item"></app-person-item>
+    </ng-container>
+    <ng-template #media>
+      <app-media-item [item]="item"></app-media-item>
+    </ng-template>
+  </li>
+</ul>

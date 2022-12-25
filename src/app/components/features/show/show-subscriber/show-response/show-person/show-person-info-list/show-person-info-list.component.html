@@ -1,0 +1,25 @@
+<ul class="info-list">
+  <li class="info-list__item" *ngIf="person.known_for_department">
+    <span>Know for:</span> {{ person.known_for_department }}
+  </li>
+  <li class="info-list__item" *ngIf="person.birthday">
+    <span>Birthday:</span> {{ person.birthday | date }}
+  </li>
+  <li class="info-list__item" *ngIf="person.deathday">
+    <span>Deathday:</span> {{ person.deathday }}
+  </li>
+  <li class="info-list__item" *ngIf="person.place_of_birth">
+    <span>Place of birth:</span> {{ person.place_of_birth }}
+  </li>
+  <li class="info-list__item" *ngIf="person.homepage">
+    <span>Website:</span>
+    <a href="{{ person.homepage }}" target="_blank">Click here</a>
+  </li>
+  <li class="info-list__item" *ngIf="person.imdb_id">
+    <span>Imdb:</span>
+    <a href="{{ imdbUrl }}" target="_blank">Click here</a>
+  </li>
+  <li class="info-list__item" *ngIf="person.also_known_as">
+    <span>Also know as:</span> {{ person.also_known_as }}
+  </li>
+</ul>

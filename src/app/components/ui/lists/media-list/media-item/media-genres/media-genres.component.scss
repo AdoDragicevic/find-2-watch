@@ -1,0 +1,14 @@
+.media-genres {
+  list-style: inside;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+
+  &__genre {
+    margin-right: 1rem;
+  }
+
+}

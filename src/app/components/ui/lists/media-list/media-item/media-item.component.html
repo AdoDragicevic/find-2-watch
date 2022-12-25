@@ -1,0 +1,17 @@
+<app-overview-card
+  [href]="link"
+  [imgUrl]="img"
+  [imgAlt]="title">
+
+  <h3 *ngIf="isShowOnlyTitle; else details">
+    {{ title }}
+  </h3>
+
+  <ng-template #details>
+    <app-media-genres
+      [genreIds]="item.genre_ids">
+    </app-media-genres>
+    <p> {{description}} </p>
+  </ng-template>
+
+</app-overview-card>
