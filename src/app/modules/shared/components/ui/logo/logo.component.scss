@@ -1,0 +1,29 @@
+@import './../../../../../styles/abstract/mixins/breakpoint';
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__svg {
+    margin-right: 1rem;
+    transform: translateY(-2px);
+
+    @media screen and (max-width: 335px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-block;
+
+    @include respond(phone) {
+      display: none
+    }
+
+  }
+}

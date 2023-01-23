@@ -1,0 +1,9 @@
+<article class="filters">
+  <section *ngFor="let category of filters | keyvalue"
+    class="filters__category">
+    <app-filters-list
+      [filters]="category.value"
+      (filterSelect)="handleClick(category.key ,$event)">
+    </app-filters-list>
+  </section>
+</article>

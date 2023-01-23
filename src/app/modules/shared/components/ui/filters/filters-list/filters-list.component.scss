@@ -1,0 +1,45 @@
+@import './../../../../../../styles/abstract/mixins/breakpoint';
+
+.filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-left: 1rem;
+
+  @include respond(phone) {
+    margin-left: .2rem;
+  }
+
+  &__item {
+    margin: 0 .5rem;
+
+    @include respond(phone) {
+      margin: 0 .2rem;
+    }
+  }
+
+  &__btn {
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    border-radius: 5px;
+    padding: .8rem 2rem;
+    color: inherit;
+    border: 2px solid rgba(#000, .5);
+    cursor: pointer;
+    background-color: rgba(#000, .5);
+
+    @include respond(phone) {
+      padding: .8rem;
+    }
+
+    &--selected {
+      background-color: rgba(#000, .5);
+      outline: 1px solid var(--color-secondary-dark);
+      background-color: var(--color-secondary-dark);
+    }
+  }
+
+}
+
+
+

@@ -1,0 +1,17 @@
+.error {
+  text-align: center;
+  background-color: black;
+  min-height: calc(100vh - var(--nav-main-height));
+
+  &__box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+  }
+
+  &__svg {
+    fill: rgb(168, 57, 51);
+  }
+
+}

@@ -1,0 +1,14 @@
+<header class="filters">
+
+  <app-filters
+    [filters]="filters"
+    (filterSelect)="onFilterSelect($event)">
+  </app-filters>
+
+  <div
+    *ngIf="isShowSearchBar"
+    class="filters__search-bar">
+    <app-index-search-bar></app-index-search-bar>
+  </div>
+
+</header>

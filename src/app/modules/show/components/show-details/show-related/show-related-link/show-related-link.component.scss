@@ -1,0 +1,11 @@
+.related-link {
+  text-align: center;
+  display: block;
+  margin: 2rem auto;
+  font-size: 1.4rem;
+  text-decoration: underline;
+
+  &:hover {
+    opacity: .8;
+  }
+}

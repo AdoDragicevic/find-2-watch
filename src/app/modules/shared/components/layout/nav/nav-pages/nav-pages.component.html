@@ -1,0 +1,94 @@
+<nav class="nav">
+  <ul class="nav__list">
+    <li
+      class="nav__list-item"
+      [ngClass]="{ 'nav__list-item--active': activePage === 'trending' }">
+      <a class="nav__link" routerLink="/index/trending">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="44"
+          viewBox="0 0 24 24"
+          fill="currentcolor"
+          stroke="currentcolor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+          <polyline points="17 6 23 6 23 12" />
+        </svg>
+        <div>Trending</div>
+      </a>
+    </li>
+    <li
+      class="nav__list-item"
+      [ngClass]="{ 'nav__list-item--active': activePage === 'movie' }">
+      <a class="nav__link" routerLink="/index/movie">
+        <svg fill="currentcolor" height="44" width="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+          <path d="M0,0v512h512V0H0z M63.9,490.7H21.3v-42.7h42.7V490.7z M63.9,405.4H21.3v-42.7h42.7V405.4z M63.9,320H21.3v-42.7h42.7V320z
+            M63.9,234.7H21.3V192h42.7V234.7z M63.9,149.3H21.3v-42.7h42.7V149.3z M63.9,63.9H21.3V21.3h42.7V63.9z M426.7,469.4H85.3V277.3
+            h341.4V469.4z M426.7,234.7H85.3V42.6h341.4V234.7z M490.7,490.7h-42.7v-42.7h42.7V490.7z M490.7,405.4h-42.7v-42.7h42.7V405.4z
+            M490.7,320h-42.7v-42.7h42.7V320z M490.7,234.7h-42.7V192h42.7V234.7z M490.7,149.3h-42.7v-42.7h42.7V149.3z M490.7,63.9h-42.7
+            V21.3h42.7V63.9z"/>
+        </svg>
+        <div>Movies</div>
+      </a>
+    </li>
+    <li
+      class="nav__list-item"
+      [ngClass]="{ 'nav__list-item--active': activePage === 'tv' }">
+      <a class="nav__link" routerLink="/index/tv">
+        <svg
+          width="24"
+          height="44"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentcolor">
+          <path
+            fill="currentcolor"
+            fill-rule="evenodd"
+            d="M6.624.334a.75.75 0 00-1.248.832L6.599 3H2.25A2.25 2.25 0 000 5.25v7.5A2.25 2.25 0 002.25 15h11.5A2.25 2.25 0 0016 12.75v-7.5A2.25 2.25 0 0013.75 3H9.401l1.223-1.834A.75.75 0 109.376.334L8 2.398 6.624.334zM7.989 4.5a.798.798 0 00.022 0h5.739a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H2.25a.75.75 0 01-.75-.75v-7.5a.75.75 0 01.75-.75h5.739z"
+            clip-rule="evenodd"/>
+        </svg>
+        <div>Tv</div>
+      </a>
+    </li>
+    <li
+      class="nav__list-item"
+      [ngClass]="{ 'nav__list-item--active': activePage === 'person' }">
+      <a class="nav__link" routerLink="/index/person">
+        <svg
+          fill="currentcolor"
+          height="44"
+          width="24"
+          version="1.1"
+          id="XMLID_297_"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+	        viewBox="0 0 24 24"
+          enable-background="new 0 0 24 24"
+          xml:space="preserve">
+          <g id="star_1_">
+	          <g id="star">
+		          <path d="M12,4.5l2.2,4.4l0.6,1.1H16h3.3l-2.8,2.9l-0.8,0.8l0.3,1.1l1.2,5L13,17.2l-1-0.6l-1,0.6l-4.3,2.6l1.2-5l0.3-1.1l-0.8-0.8
+			          L4.6,10h3.3h1.2l0.6-1.1L12,4.5 M12,0L8,8H0l6,6.3L3.6,24l8.4-5.1l8.4,5.1L18,14.3L24,8h-8L12,0L12,0z"/>
+	          </g>
+          </g>
+        </svg>
+        <div>People</div>
+      </a>
+    </li>
+    <li
+      class="nav__list-item"
+      [ngClass]="{ 'nav__list-item--active': activePage === 'search' }">
+      <a class="nav__link" routerLink="/index/search">
+        <svg width="24" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>Search</div>
+      </a>
+    </li>
+  </ul>
+</nav>

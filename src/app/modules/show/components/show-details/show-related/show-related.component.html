@@ -1,0 +1,22 @@
+<ng-container *ngIf="results$ | async as res; else loading">
+
+  <app-switch-list
+    [type]="res.listType"
+    [list]="res.data">
+  </app-switch-list>
+  <app-show-related-link
+    [relatedType]="type"
+    [mediaType]="mediaType"
+    [id]="id">
+  </app-show-related-link>
+
+</ng-container>
+
+
+<ng-template #loading>
+
+  <div class="u-absolute-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+</ng-template>

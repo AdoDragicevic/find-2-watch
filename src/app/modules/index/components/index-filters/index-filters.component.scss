@@ -1,0 +1,13 @@
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: black;
+  color: var(--color-white);
+
+  &__search-bar {
+    padding: 1rem 2rem;
+    margin-left: auto;
+  }
+
+}

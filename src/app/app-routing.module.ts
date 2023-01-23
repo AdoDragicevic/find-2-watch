@@ -1,60 +1,41 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CreditsPageComponent } from './pages/credits-page/credits-page.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { IndexPageComponent } from './pages/index-page/index-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ShowPageComponent } from './pages/show-page/show-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/trending',
+    redirectTo: '/index/trending',
     pathMatch: 'full'
   },
   {
-    path: 'trending',
-    component: IndexPageComponent
+    path: 'index/:type',
+    loadChildren: () => (
+      import('./modules/index/index.module')
+      .then(m => m.IndexModule)
+    )
   },
   {
-    path: 'search',
-    component: IndexPageComponent
+    path: 'show/:type/:id',
+    loadChildren: () => (
+      import('./modules/show/show.module')
+      .then(m => m.ShowModule)
+    )
   },
   {
-    path: 'movie',
-    component: IndexPageComponent
+    path: 'credits/:type/:id',
+    loadChildren: () => (
+      import('./modules/credits/credits.module')
+      .then(m => m.CreditsModule)
+    )
   },
   {
-    path: 'movie/:id',
-    component: ShowPageComponent
-  },
-  {
-    path: 'tv',
-    component: IndexPageComponent
-  },
-  {
-    path: 'tv/:id',
-    component: ShowPageComponent
-  },
-  {
-    path: 'person',
-    component: IndexPageComponent
-  },
-  {
-    path: 'person/:id',
-    component: ShowPageComponent
-  },
-  {
-    path: 'recommendations/:mediaType/:id',
-    component: IndexPageComponent
-  },
-  {
-    path: 'similar/:mediaType/:id',
-    component: IndexPageComponent
-  },
-  {
-    path: 'credits/:mediaType/:id',
-    component: CreditsPageComponent
+    path: 'biography/:type/:id',
+    loadChildren: () => (
+      import('./modules/biography/biography.module')
+      .then(m => m.BiographyModule)
+    )
   },
   {
     path: 'error',
@@ -69,6 +50,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top'
     })
   ],

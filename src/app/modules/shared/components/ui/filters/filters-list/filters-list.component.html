@@ -1,0 +1,12 @@
+<ul class="filters-list">
+  <li
+    *ngFor="let filter of filters"
+    class="filters-list__item">
+    <button
+      class="filters-list__btn"
+      [ngClass]="{ 'filters-list__btn--selected': filter.isApplied }"
+      (click)="handleClick(filter.name)">
+      {{ filter.name | replaceAll:'_':' ' }}
+    </button>
+  </li>
+</ul>

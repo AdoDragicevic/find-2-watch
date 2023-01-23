@@ -1,0 +1,31 @@
+<main class="list-controller">
+
+  <button
+    class="list-controller__btn u-btn-reset"
+    [ngClass]="{ 'list-controller__btn--selected': showList === 'crew' }"
+    (click)="showList = 'cast'">
+    Cast
+  </button>
+
+  <button
+    class="list-controller__btn u-btn-reset"
+    [ngClass]="{ 'list-controller__btn--selected': showList === 'cast' }"
+    (click)="showList = 'crew'">
+    Crew
+  </button>
+
+  <ng-container *ngIf="showList === 'cast'; else crew">
+
+    <app-credits-cast-list [cast]="credits.cast"></app-credits-cast-list>
+
+  </ng-container>
+
+  <ng-template #crew>
+
+    <app-credits-crew-list [crew]="credits.crew"></app-credits-crew-list>
+
+  </ng-template>
+
+</main>
+
+

@@ -1,0 +1,14 @@
+<ng-container *ngIf="results$ | async as res; else loading">
+
+  <app-index-list [data]="res"></app-index-list>
+
+</ng-container>
+
+
+<ng-template #loading>
+
+  <div class="u-fix-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+</ng-template>

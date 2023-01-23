@@ -1,0 +1,21 @@
+<ng-container *ngIf="isEmpty; else results">
+
+  <h2 class="u-fix-center warning-text">No results found</h2>
+
+</ng-container>
+
+
+<ng-template #results>
+
+  <app-switch-list
+    [type]="data.type"
+    [list]="data.results">
+  </app-switch-list>
+
+  <app-pagination
+    [currentPage]="data.currentPage"
+    [totalPages]="data.totalPages"
+    (pageChange)="onChangePage($event)">
+  </app-pagination>
+
+</ng-template>

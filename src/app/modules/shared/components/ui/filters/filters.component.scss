@@ -1,0 +1,25 @@
+@import '../../../../../styles/abstract/mixins/breakpoint';
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: black;
+  color: var(--color-white);
+
+  &__category {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+
+    @include respond(phone) {
+      padding: 1rem 0;
+    }
+
+  }
+
+}

@@ -1,7 +1,28 @@
 html {
   font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tab-land) {
+    font-size: 56.25%; // 9px
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 12px; 12/16 = 75%
+  }
+
 }
 
 body {
   font-family: sans-serif;
+}
+
+.warning-text {
+  font-weight: 100;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
 }

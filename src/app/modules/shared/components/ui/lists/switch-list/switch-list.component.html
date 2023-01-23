@@ -1,0 +1,23 @@
+<ng-container [ngSwitch]="type">
+
+  <ng-container *ngSwitchCase="'search'">
+    <app-mixed-list [list]="list"></app-mixed-list>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'trending'">
+    <app-mixed-list [list]="list"></app-mixed-list>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'person'">
+    <app-person-list [list]="list"></app-person-list>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'credits'">
+    <app-cast-list [list]="list"></app-cast-list>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>
+    <app-media-list [list]="list"></app-media-list>
+  </ng-container>
+
+</ng-container>

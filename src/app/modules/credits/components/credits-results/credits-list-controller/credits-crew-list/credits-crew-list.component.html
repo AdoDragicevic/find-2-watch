@@ -1,0 +1,13 @@
+<ul class="info-list">
+  <li
+    *ngFor="let member of crew"
+    class="info-list__item">
+
+    <app-credits-person-info
+      [name]="member.name"
+      [role]="member.job || member.department || 'unknown'"
+      [profileUrl]="'/show/person/' + member.id">
+    </app-credits-person-info>
+
+  </li>
+</ul>

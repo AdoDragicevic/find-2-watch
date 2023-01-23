@@ -1,0 +1,17 @@
+<app-index-filters></app-index-filters>
+
+
+<ng-container *ngIf="isSearchQueryRequired$ | async; else results">
+
+  <div class="u-fix-center">
+    <h2 class="warning-text">Enter search term</h2>
+  </div>
+
+</ng-container>
+
+
+<ng-template #results>
+
+  <app-index-results></app-index-results>
+
+</ng-template>
