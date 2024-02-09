@@ -1,6 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Params } from '@angular/router';
-import { BiographyRequestConfig, CreditsRequestConfig, RecommendationsRequestConfig, RequestType, ShowRequestConfig, SimilarRequestConfig } from 'src/app/models/shared/http-request';
+import { 
+  BiographyRequestConfig, 
+  CreditsRequestConfig, 
+  RecommendationsRequestConfig, 
+  RequestType, 
+  ShowRequestConfig, 
+  SimilarRequestConfig 
+} from 'src/app/models/shared/http-request';
 import { IndexRequestConfigService } from './index-request-config/index-request-config.service';
 
 @Injectable({
@@ -8,9 +15,7 @@ import { IndexRequestConfigService } from './index-request-config/index-request-
 })
 export class HttpRequestConfigService {
 
-  constructor(
-    private readonly indexRequestConfigSvc: IndexRequestConfigService
-  ) { }
+  private readonly indexRequestConfigSvc = inject(IndexRequestConfigService);
 
   getConfig(requestType: RequestType, params: Params, queryParams: Params) {
     const { type, id } = params;

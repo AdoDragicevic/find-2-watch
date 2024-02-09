@@ -15,6 +15,7 @@ import { ShowMovieInfoListComponent } from "./components/show-details/show-media
 import { ShowTvInfoListComponent } from "./components/show-details/show-media/show-media-info-list-switch/show-tv-info-list/show-tv-info-list.component";
 import { ShowRelatedResultsService } from "./services/show-related-results/show-related-results.service";
 import { ShowRelatedLinkComponent } from "./components/show-details/show-related/show-related-link/show-related-link.component";
+import { ShowRelatedListComponent } from './components/show-details/show-related/show-related-list/show-related-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShowRelatedLinkComponent } from "./components/show-details/show-related
     ShowPersonInfoListComponent,
     ShowMovieInfoListComponent,
     ShowTvInfoListComponent,
-    ShowRelatedLinkComponent
+    ShowRelatedLinkComponent,
+    ShowRelatedListComponent
   ],
   imports: [
     ShowRoutingModule,

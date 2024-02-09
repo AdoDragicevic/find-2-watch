@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ShowDetails, ShowPage } from 'src/app/models/shared/results';
+import { ShowResults } from 'src/app/models/show/results';
 
 @Component({
   selector: 'app-show-details',
@@ -7,7 +7,6 @@ import { ShowDetails, ShowPage } from 'src/app/models/shared/results';
 })
 export class ShowDetailsComponent {
 
-  @Input() type: ShowPage;
-  @Input() data: ShowDetails;
+  @Input() details: ShowResults;
 
 }

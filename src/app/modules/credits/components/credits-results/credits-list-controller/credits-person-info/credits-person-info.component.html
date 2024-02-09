@@ -1,16 +1,5 @@
 <article class="person-info">
-
-  <p class="person-info__category">
-    <span>Name:</span> {{ name}}
-  </p>
-
-  <p class="person-info__category">
-    <span>Role:</span> {{ role }}
-  </p>
-
-  <p class="person-info__category">
-    <span>Profile:</span>
-    <a [routerLink]="profileUrl">Click here</a>
-  </p>
-
+  <p class="person-info__p"> Name: {{ name }} </p>
+  <p class="person-info__p"> Role: {{ role }} </p>
+  <a class="person-info__a" [routerLink]="profileUrl"> Profile </a>
 </article>

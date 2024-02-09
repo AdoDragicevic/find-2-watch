@@ -1,45 +1,33 @@
 <article class="pagination">
 
-  <ul
-    *ngIf="totalPages > 1"
-    class="pagination__list">
+  <ul class="pagination__list" *ngIf="totalPages > 1">
 
     <li [hidden]="currentPage === 1 || totalPages <= 2">
-      <button
-        class="pagination__btn"
-        (click)="onClick(1)">
+      <button class="pagination__btn" (click)="onClick(1)">
         First
       </button>
     </li>
 
     <li [hidden]="currentPage === 1">
-      <button
-        class="pagination__btn"
-        (click)="onClick(currentPage - 1)">
+      <button class="pagination__btn" (click)="onClick(currentPage - 1)">
         {{currentPage - 1}}
       </button>
     </li>
 
     <li>
-      <button
-        class="pagination__btn"
-        disabled="true">
+      <button class="pagination__btn" disabled="true">
         {{currentPage}}
       </button>
     </li>
 
     <li [hidden]="currentPage === totalPages">
-      <button
-        class="pagination__btn"
-        (click)="onClick(currentPage + 1)">
+      <button class="pagination__btn" (click)="onClick(currentPage + 1)">
         {{currentPage + 1}}
       </button>
     </li>
 
     <li [hidden]="currentPage === totalPages || totalPages <= 2">
-      <button
-        class="pagination__btn"
-        (click)="onClick(totalPages)">
+      <button class="pagination__btn" (click)="onClick(totalPages)">
         Last
       </button>
     </li>

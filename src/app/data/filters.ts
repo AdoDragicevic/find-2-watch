@@ -1,3 +1,4 @@
+import { InjectionToken } from "@angular/core"
 import { AllFilters, Filters } from "../models/index/filters"
 
 
@@ -46,3 +47,5 @@ export const allFilters: AllFilters = {
   tv: tvFilters,
   search: searchFilters
 }
+
+export const ALL_FILTERS = new InjectionToken<AllFilters>('all filters');

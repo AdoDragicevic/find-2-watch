@@ -1,0 +1,26 @@
+.btn {
+  width: 45%;
+  border-bottom: 1px solid currentColor;
+  background-color: transparent;
+  color: currentColor;
+  font-size: 3rem;
+  font-weight: 100;
+  margin: 4rem 1rem 2rem 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(#eee, .5);
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 1px;
+  opacity: .7;
+
+  &:hover {
+    border-bottom-color: var(--color-white);
+  }
+
+  &--selected {
+    opacity: 1;
+    border-bottom-color: var(--color-white);
+  }
+
+}

@@ -1,0 +1,18 @@
+<ng-container *ngIf="isEmpty; else list">
+
+  <h2 class="u-absolute-center warning-text">No results found</h2>
+
+</ng-container>
+
+<ng-template #list>
+
+  <app-switch-list
+    [type]="results.listType"
+    [list]="results.data">
+  </app-switch-list>
+
+  <app-show-related-link
+    [relatedType]="relatedType">
+  </app-show-related-link>
+
+</ng-template>

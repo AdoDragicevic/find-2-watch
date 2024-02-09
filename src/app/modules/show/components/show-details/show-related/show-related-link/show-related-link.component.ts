@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MediaType } from 'src/app/models/index/results';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ShowRelatedType } from 'src/app/models/show/show';
 import { ShowRelatedResultsService } from 'src/app/modules/show/services/show-related-results/show-related-results.service';
 
@@ -11,18 +11,15 @@ import { ShowRelatedResultsService } from 'src/app/modules/show/services/show-re
 export class ShowRelatedLinkComponent implements OnInit {
 
   @Input() relatedType: ShowRelatedType;
-  @Input() mediaType: MediaType;
-  @Input() id: string;
 
   url = '/';
 
-  constructor(
-    private readonly showRelatedResultsSvc: ShowRelatedResultsService
-  ) { }
+  private readonly showRelatedResultsSvc = inject(ShowRelatedResultsService);
+  private readonly route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    const { relatedType, mediaType, id } = this;
-    this.url = this.showRelatedResultsSvc.getLink(relatedType, mediaType, id);
+    const { type, id } = this.route.snapshot.params;
+    this.url = this.showRelatedResultsSvc.getLink(this.relatedType, type, id);
   }
 
 }

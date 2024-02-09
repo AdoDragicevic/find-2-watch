@@ -1,7 +1,5 @@
 <ul class="filters-list">
-  <li
-    *ngFor="let filter of filters"
-    class="filters-list__item">
+  <li class="filters-list__item" *ngFor="let filter of filters">
     <button
       class="filters-list__btn"
       [ngClass]="{ 'filters-list__btn--selected': filter.isApplied }"

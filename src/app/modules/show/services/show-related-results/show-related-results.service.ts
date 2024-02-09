@@ -1,25 +1,32 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of, switchMap, throwError } from 'rxjs';
-import { Biography, Cast, Credits, Crew } from 'src/app/models/credits/credits';
-import { IndexResponse, Media, MediaType, Mixed } from 'src/app/models/index/results';
-import { BiographyRequestConfig, CreditsRequestConfig, RecommendationsRequestConfig, RequestConfig, SimilarRequestConfig } from 'src/app/models/shared/http-request';
+import { Biography } from 'src/app/models/biography/biography';
+import { Cast, Credits, Crew } from 'src/app/models/credits/credits';
+import { IndexResponse, MediaType, Mixed } from 'src/app/models/index/results';
+import { 
+  BiographyRequestConfig, 
+  CreditsRequestConfig, 
+  RecommendationsRequestConfig, 
+  RequestConfig, 
+  SimilarRequestConfig 
+} from 'src/app/models/shared/http-request';
 import { ShowRelatedResults } from 'src/app/models/show/results';
 import { ShowRelatedType } from 'src/app/models/show/show';
 import { HttpSubscriberService } from 'src/app/services/results/http-response/http-subscriber/http-subscriber.service';
 
+
 @Injectable()
 export class ShowRelatedResultsService {
 
-  constructor(
-    private readonly httpSubscriberSvc: HttpSubscriberService
-  ) { }
+  private readonly httpSubscriberSvc = inject(HttpSubscriberService);
 
   getResults$(relatedType: ShowRelatedType, mediaType: MediaType, id: string): Observable<ShowRelatedResults> {
     return of( this.getRequestConfig(relatedType, mediaType, id) )
       .pipe(
-        switchMap( config => this.httpSubscriberSvc.getRequest$(config) as
+        switchMap( config => (
+          this.httpSubscriberSvc.getRequest$(config) as
           Observable<IndexResponse<Mixed> | Credits | Biography>
-        ),
+        ) ),
         map( res => this.extractData(relatedType, res) ),
         map( data => data.slice(0,8) ),
         map( data => {

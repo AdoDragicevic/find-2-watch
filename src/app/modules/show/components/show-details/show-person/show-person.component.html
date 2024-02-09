@@ -11,7 +11,9 @@
 
   <section class="person__section person__section--description">
     <h2 class="person__title">Description</h2>
-    <p class="person__overview">{{person.biography}}</p>
+    <p class="person__overview">
+      {{ person.biography || 'No available info.' }}
+    </p>
   </section>
 
   <section class="person__section person__section--stared-in-movies">

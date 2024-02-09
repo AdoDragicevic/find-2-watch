@@ -1,9 +1,8 @@
 <ng-container *ngIf="results$ | async as res; else loading">
 
-  <app-show-details [type]="res.type" [data]="res.data"></app-show-details>
+  <app-show-details [details]="res"></app-show-details>
 
 </ng-container>
-
 
 <ng-template #loading>
 

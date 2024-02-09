@@ -9,7 +9,7 @@ import { Filter } from 'src/app/models/index/filters';
 export class FiltersListComponent {
 
   @Input() filters: Filter[];
-
+  
   @Output() filterSelect = new EventEmitter<string>();
 
   handleClick(filterName: string): void {

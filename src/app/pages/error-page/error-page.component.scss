@@ -10,8 +10,30 @@
     transform: translate(-50%, -70%);
   }
 
-  &__svg {
-    fill: rgb(168, 57, 51);
+  &__btn {
+    background-color: #4c76ea;
+    border-radius: 1rem;
+    border-style: none;
+    color: var(--col-white);
+    padding: 1rem 6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 3rem;
+    outline: none;
+    text-decoration: none;
+    transition: color 100ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    &:hover,
+    &:focus {
+      background-color: #4e72d6;
+    }
+
   }
+  
+  
 
 }

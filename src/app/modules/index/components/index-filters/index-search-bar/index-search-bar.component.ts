@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs';
@@ -10,16 +10,14 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs';
 })
 export class IndexSearchBarComponent implements OnInit {
 
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+
   @ViewChild('inputEl', { static: true }) input: ElementRef;
 
   searchForm = new FormGroup({
     'searchInput': new FormControl(null)
   });
-
-  constructor(
-    private readonly router: Router,
-    private readonly route: ActivatedRoute
-  ) { }
 
   ngOnInit(): void {
     this.syncUrlWithSearchInput();
@@ -44,7 +42,7 @@ export class IndexSearchBarComponent implements OnInit {
       .subscribe(this.focusSearchInput);
   }
 
-  updateQueryParams = (searchInputVal: string): void => {
+  private updateQueryParams = (searchInputVal: string): void => {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { query: searchInputVal },
@@ -52,7 +50,7 @@ export class IndexSearchBarComponent implements OnInit {
     });
   }
 
-  focusSearchInput = (): void => {
+  private focusSearchInput = (): void => {
     this.input.nativeElement.focus();
   }
 

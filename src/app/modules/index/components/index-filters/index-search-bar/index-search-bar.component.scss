@@ -2,24 +2,18 @@
 
 .search-bar {
   position: relative;
-  display: inline-block;
+  display: flex;
   width: 30vw;
 
   &__icon {
-    height: 100%;
-
-  }
-
-  &__svg {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    top: .4rem;
+    left: 1rem;
     width: 4rem;
-    margin-left: 1rem;
 
-    @include respond(phone) {
-      margin-left: 0;
+    @include respond(tab-port) {
+      left: .2rem;
+      top: .2rem;
     }
   }
 

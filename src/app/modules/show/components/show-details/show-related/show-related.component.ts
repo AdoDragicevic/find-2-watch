@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ShowRelatedResults } from 'src/app/models/show/results';
@@ -15,22 +15,12 @@ export class ShowRelatedComponent implements OnInit {
 
   results$: Observable<ShowRelatedResults>;
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly showRelatedResultsSvc: ShowRelatedResultsService
-  ) { }
+  private readonly route = inject(ActivatedRoute);
+  private readonly showRelatedResultsSvc = inject(ShowRelatedResultsService);
 
-  ngOnInit(): void {
+  ngOnInit() {
     const { type, id } = this.route.snapshot.params;
     this.results$ = this.showRelatedResultsSvc.getResults$(this.type, type, id);
-  }
-
-  get mediaType(): string {
-    return this.route.snapshot.params['type'];
-  }
-
-  get id(): string {
-    return this.route.snapshot.params['id'];
   }
 
 }

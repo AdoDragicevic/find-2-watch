@@ -17,6 +17,12 @@ export interface AppliedFilters {
   [category: string]: string;
 }
 
+export interface FiltersData {
+  isSearchPage: boolean, 
+  appliedFilters: AppliedFilters, 
+  pageFilters: Filters
+}
+
 // MOVIE FILTERS
 
 export interface MoviesFilters {

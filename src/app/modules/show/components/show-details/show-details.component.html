@@ -1,12 +1,14 @@
-<ng-container *ngIf="type === 'person'; else media">
+<ng-container *ngIf="details.type === 'person'; else media">
 
-  <app-show-person [person]="data"></app-show-person>
+  <app-show-person [person]="details.data"></app-show-person>
 
 </ng-container>
 
-
 <ng-template #media>
 
-  <app-show-media [media]="data" [mediaType]="type"></app-show-media>
+  <app-show-media 
+    [mediaType]="details.type" 
+    [media]="details.data">
+  </app-show-media>
 
 </ng-template>

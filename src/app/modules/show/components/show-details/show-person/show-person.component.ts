@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { BiographyRequestConfig } from 'src/app/models/shared/http-request';
 import { PersonDetails } from 'src/app/models/shared/results';
 import { environment } from 'src/environments/environment';
-import { MediaType } from 'src/app/models/index/results';
 
 @Component({
   selector: 'app-show-person',

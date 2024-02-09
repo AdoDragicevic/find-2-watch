@@ -7,8 +7,10 @@ import { IndexListComponent } from "./components/index-results/index-list/index-
 import { IndexResultsComponent } from "./components/index-results/index-results.component";
 import { IndexComponent } from "./components/index.component";
 import { IndexRoutingModule } from "./index.routing.module";
-import { IndexFiltersService } from "./services/index-filters/index-filters.service";
 import { IndexResultsService } from "./services/index-results/index-results.service";
+import { IndexFiltersService } from "./services/index-filters/index-filters.service";
+import { IndexAppliedFiltersService } from "./services/index-filters/index-applied-filters/index-applied-filters.service";
+import { ALL_FILTERS, allFilters } from "src/app/data/filters";
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { IndexResultsService } from "./services/index-results/index-results.serv
     IndexRoutingModule
   ],
   providers: [
+    IndexResultsService,
     IndexFiltersService,
-    IndexResultsService
+    IndexAppliedFiltersService,
+    { provide: ALL_FILTERS, useValue: allFilters }
   ]
 })
 export class IndexModule { }

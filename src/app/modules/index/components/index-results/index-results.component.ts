@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { IndexResults } from 'src/app/models/index/results';
 import { IndexResultsService } from '../../services/index-results/index-results.service';
 
 @Component({
@@ -10,15 +8,9 @@ import { IndexResultsService } from '../../services/index-results/index-results.
 })
 export class IndexResultsComponent {
 
-  results$: Observable<IndexResults>;
+  private readonly route = inject(ActivatedRoute);
+  private readonly indexResultsSvc = inject(IndexResultsService);
 
-  constructor (
-    private readonly route: ActivatedRoute,
-    private readonly indexResultsSvc: IndexResultsService
-  ) { }
-
-  ngOnInit(): void {
-    this.results$ = this.indexResultsSvc.getResults$(this.route);
-  }
+  public results$ = this.indexResultsSvc.getResults$(this.route);
 
 }

@@ -1,9 +1,10 @@
 <ng-container *ngIf="results$ | async as res; else loading">
 
-  <app-credits-list-controller [credits]="res"></app-credits-list-controller>
+  <app-credits-list-controller 
+    [credits]="res">
+  </app-credits-list-controller>
 
 </ng-container>
-
 
 <ng-template #loading>
 

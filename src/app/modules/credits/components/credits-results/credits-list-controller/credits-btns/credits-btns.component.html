@@ -1,0 +1,13 @@
+<button
+  class="btn u-btn-reset"
+  [ngClass]="{ 'btn--selected': creditsType === 'cast' }"
+  (click)="onBtnClick('cast')">
+  Cast
+</button>
+
+<button
+  class="btn u-btn-reset"
+  [ngClass]="{ 'btn--selected': creditsType === 'crew' }"
+  (click)="onBtnClick('crew')">
+  Crew
+</button>

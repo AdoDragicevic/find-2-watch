@@ -1,42 +1,52 @@
-import { Injectable } from '@angular/core';
-import { allFilters } from 'src/app/data/filters';
-import { AppliedFilters, Filters } from 'src/app/models/index/filters';
+import { Injectable, inject } from '@angular/core';
+import { IndexAppliedFiltersService } from './index-applied-filters/index-applied-filters.service';
 import { IndexPage } from 'src/app/models/index/results';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable, combineLatest, map, tap } from 'rxjs';
+import { AppliedFilters, FiltersData } from 'src/app/models/index/filters';
 
 @Injectable()
 export class IndexFiltersService {
 
-  private readonly allFilters = allFilters;
+  private readonly router = inject(Router);
+  private readonly appliedFiltersSvc = inject(IndexAppliedFiltersService);
 
-  getFilters(page: IndexPage): Filters {
-    return this.allFilters[page];
+  filters$(route: ActivatedRoute): Observable<FiltersData> {
+    const { params, queryParams } = route;
+    return combineLatest([params, queryParams])
+      .pipe(
+        map(this.getIndexPageAndQueryParams),
+        tap(this.setActiveFilters),
+        map(([ indexPage ]) => indexPage),
+        map(this.getFiltersData),
+        tap(({ appliedFilters }) => {
+          this.addToQueryParams(appliedFilters, route)
+        })
+      )
   }
 
-  setAppliedFilters(page: IndexPage, selectedFilters: AppliedFilters): AppliedFilters {
-    const filters = this.allFilters[page];
-    if (!filters) return;
-    for (let key in selectedFilters) {
-      const category = filters[key];
-      const name = selectedFilters[key];
-      if (!category) break;
-      const filterIndx = category.findIndex(filter => filter.name === name);
-      if (filterIndx === -1) break;
-      category.forEach(filter => filter.isApplied = filter.name === name);
-    }
-    return this.getAppliedFilters(filters);
+  addToQueryParams = (filters: AppliedFilters, route: ActivatedRoute): void => {
+    this.router.navigate([], {
+      relativeTo: route,
+      queryParams: filters,
+      queryParamsHandling: 'merge'
+    });
+  };
+
+  private getIndexPageAndQueryParams([params, queryParams]: [Params, Params]): [IndexPage, Params] {
+    const page = params['type'] as IndexPage;
+    return [ page, queryParams ];
   }
 
-  private getAppliedFilters(filters: Filters): AppliedFilters {
-    const applied = {} as AppliedFilters;
-    for (let key in filters) {
-      const category = filters[key];
-      category.forEach(filter => {
-        if (filter.isApplied) {
-          applied[key] = filter.name;
-        }
-      })
-    }
-    return applied;
+  private setActiveFilters = ([page, queryParams]: [IndexPage, Params]) => {
+    this.appliedFiltersSvc.setAppliedFilters(page, queryParams);
+  }
+
+  private getFiltersData = (page: IndexPage): FiltersData => {
+    const isSearchPage = page === 'search';
+    const pageFilters = this.appliedFiltersSvc.getPageFilters(page);
+    const appliedFilters = this.appliedFiltersSvc.getAppliedFilters(pageFilters);
+    return { isSearchPage, pageFilters, appliedFilters };
   }
 
 }

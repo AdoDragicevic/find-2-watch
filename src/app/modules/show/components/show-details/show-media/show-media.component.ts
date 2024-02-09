@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { MediaType } from 'src/app/models/index/results';
-import { CreditsRequestConfig, RecommendationsRequestConfig, SimilarRequestConfig } from 'src/app/models/shared/http-request';
 import { MovieDetails, TvDetails } from 'src/app/models/shared/results';
 import { environment } from 'src/environments/environment';
 

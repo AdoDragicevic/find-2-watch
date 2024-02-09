@@ -1,14 +1,16 @@
-<header class="filters">
+<header class="filters" *ngIf="filters$ | async as data">
 
   <app-filters
-    [filters]="filters"
+    [filters]="data.pageFilters"
     (filterSelect)="onFilterSelect($event)">
   </app-filters>
 
-  <div
-    *ngIf="isShowSearchBar"
-    class="filters__search-bar">
-    <app-index-search-bar></app-index-search-bar>
-  </div>
+  <ng-container *ngIf="data.isSearchPage">
+
+    <div class="filters__search-bar">
+      <app-index-search-bar></app-index-search-bar>
+    </div>
+
+  </ng-container>
 
 </header>

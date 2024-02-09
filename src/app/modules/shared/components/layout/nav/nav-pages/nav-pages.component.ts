@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IndexPage } from 'src/app/models/index/results';
 
@@ -9,9 +9,7 @@ import { IndexPage } from 'src/app/models/index/results';
 })
 export class NavPagesComponent {
 
-  constructor(
-    private readonly route: ActivatedRoute
-  ) { }
+  private readonly route = inject(ActivatedRoute);
 
   get activePage(): IndexPage {
     return this.route.snapshot.params['type'];

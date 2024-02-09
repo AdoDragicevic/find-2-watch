@@ -22,6 +22,17 @@ import { LoadingSpinnerComponent } from "./components/ui/loading-spinner/loading
 import { LogoComponent } from "./components/ui/logo/logo.component";
 import { OverviewCardComponent } from "./components/ui/overview-card/overview-card.component";
 import { PaginationComponent } from "./components/ui/pagination/pagination.component";
+import { SearchIconComponent } from "./components/ui/icons/search-icon/search-icon.component";
+import { TrendingIconComponent } from './components/ui/icons/trending-icon/trending-icon.component';
+import { MovieIconComponent } from './components/ui/icons/movie-icon/movie-icon.component';
+import { TvIconComponent } from './components/ui/icons/tv-icon/tv-icon.component';
+import { PeopleIconComponent } from './components/ui/icons/people-icon/people-icon.component';
+import { SearchInputIconComponent } from './components/ui/icons/search-input-icon/search-input-icon.component';
+import { ErrorIconComponent } from './components/ui/icons/error-icon/error-icon.component';
+import { GlobeIconComponent } from './components/ui/icons/globe-icon/globe-icon.component';
+import { ImdbIconComponent } from './components/ui/icons/imdb-icon/imdb-icon.component';
+import { YoutubeIconComponent } from './components/ui/icons/youtube-icon/youtube-icon.component';
+import { PosterIconComponent } from './components/ui/icons/poster-icon/poster-icon.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +55,18 @@ import { PaginationComponent } from "./components/ui/pagination/pagination.compo
     OverviewCardComponent,
     LogoComponent,
     LoadingSpinnerComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchIconComponent,
+    TrendingIconComponent,
+    MovieIconComponent,
+    TvIconComponent,
+    PeopleIconComponent,
+    SearchInputIconComponent,
+    ErrorIconComponent,
+    GlobeIconComponent,
+    ImdbIconComponent,
+    YoutubeIconComponent,
+    PosterIconComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +96,13 @@ import { PaginationComponent } from "./components/ui/pagination/pagination.compo
     OverviewCardComponent,
     LogoComponent,
     LoadingSpinnerComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchInputIconComponent,
+    ErrorIconComponent,
+    GlobeIconComponent,
+    ImdbIconComponent,
+    YoutubeIconComponent,
+    PosterIconComponent
   ]
 })
 export class SharedModule {}

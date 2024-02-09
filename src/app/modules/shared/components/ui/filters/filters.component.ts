@@ -9,7 +9,7 @@ import { AppliedFilters, Filters } from 'src/app/models/index/filters';
 export class FiltersComponent {
 
   @Input() filters: Filters;
-
+  
   @Output() filterSelect = new EventEmitter<AppliedFilters>();
 
   handleClick(category: string, name: string): void {

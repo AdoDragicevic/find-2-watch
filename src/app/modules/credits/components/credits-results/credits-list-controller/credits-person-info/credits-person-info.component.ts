@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Cast, Crew } from 'src/app/models/credits/credits';
 
 @Component({
   selector: 'app-credits-person-info',
@@ -7,8 +8,20 @@ import { Component, Input } from '@angular/core';
 })
 export class CreditsPersonInfoComponent {
 
-  @Input() name: string;
-  @Input() role: string;
-  @Input() profileUrl: string;
+  @Input() person: Crew | Cast;
+
+  get name(): string {
+    return this.person.name;
+  }
+
+  get role(): string {
+    const { character } = <Cast>this.person;
+    const { job, department } = <Crew>this.person;
+    return character || job || department || 'undefined';
+  }
+
+  get profileUrl(): string {
+    return `/show/person/${this.person.id}`;
+  }
 
 }

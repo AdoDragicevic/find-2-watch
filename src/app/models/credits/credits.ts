@@ -1,15 +1,9 @@
-import { Media } from "../index/results";
+export type CreditsType = 'cast' | 'crew';
 
 export interface Credits {
   id: string;
   cast: Cast[];
   crew: Crew[];
-}
-
-export interface Biography {
-  id: string;
-  cast: Media[];
-  crew: Media[];
 }
 
 export interface Cast {

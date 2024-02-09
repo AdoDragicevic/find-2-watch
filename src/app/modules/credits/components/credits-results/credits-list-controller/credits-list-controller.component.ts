@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Credits } from 'src/app/models/credits/credits';
+import { Component, Input } from '@angular/core';
+import { Cast, Credits, CreditsType, Crew } from 'src/app/models/credits/credits';
 
 @Component({
   selector: 'app-credits-list-controller',
@@ -10,6 +10,11 @@ export class CreditsListControllerComponent {
 
   @Input() credits: Credits;
 
-  showList: 'crew' | 'cast' = 'cast';
+  creditsType: CreditsType = 'cast';
+
+  get list(): (Cast | Crew)[] {
+    const { cast, crew } = this.credits;
+    return this.creditsType === 'cast' ? cast : crew;
+  }
 
 }

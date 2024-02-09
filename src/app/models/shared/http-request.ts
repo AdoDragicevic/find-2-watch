@@ -1,5 +1,5 @@
 import { MovieType, SearchFilter, TrendingTime, TrendingType, TvType } from "../index/filters";
-import { IndexPage, MediaType } from "../index/results";
+import { MediaType } from "../index/results";
 import { Pages } from "./pages";
 
 export enum RequestErrorHandling {
